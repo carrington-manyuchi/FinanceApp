@@ -11,3 +11,4 @@ import SwiftUI
 let darkBackground = Color("DarkBackground")
 let backgroundX = Color("BackgroundX")
 let fontColor = Color("FontColor")
+let creditCardChip: String = "EMV Chip"
