@@ -49,12 +49,12 @@ struct AvatarView: View {
                 .resizable()
                 .frame(width: 30, height: 30)
                 .foregroundStyle(fontColor)
-                .background(backgroundX)
+                .background(darkBackground2)
                 .clipShape(Circle())
             
             
-            TextView(text: "Carrington Manyuchi", font: .title)
-            TextView(text: "Frontend Developer: SwiftUI", font: .headline)
+            TextView(text: "Carrington Manyuchi", font: .title, fontWeight: .semibold)
+            TextView(text: "Frontend Developer: SwiftUI", font: .headline, fontWeight: .semibold)
         }
         .padding()
     }
@@ -63,6 +63,7 @@ struct AvatarView: View {
 struct TextView: View {
     let text: String
     let font: Font
+    let fontWeight: Font.Weight
     
     var body: some View {
         Text(text)
