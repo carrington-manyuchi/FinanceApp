@@ -126,21 +126,36 @@ struct YourBalanceActionsView: View {
         (iconName: "dollarsign.square", name: "Received", color: .yellow),
         (iconName: "icloud.and.arrow.up", name: "Topup", color: .blue)
     ]
-
+    
     var body: some View {
         HStack() {
             Spacer()
             ForEach(actionList, id: \.name) { item in
-                VStack {
-                    Image(systemName: item.iconName)
-                        .foregroundStyle(item.color)
-                        .frame(width: 50, height: 50)
-                        .background(darkBackground2)
-                        .clipShape(RoundedRectangle(cornerRadius: 15))
-                    TextView(text: item.name, font: .body, fontWeight: .semibold)
-                }
+                ActionView(
+                    iconName: item.iconName,
+                    color: item.color,
+                    name: item.name
+                )
                 Spacer()
+
             }
+        }
+    }
+}
+
+struct ActionView: View {
+    let iconName: String
+    let color: Color
+    let name: String
+    
+    var body: some View {
+        VStack {
+            Image(systemName: iconName)
+                .foregroundStyle(color)
+                .frame(width: 50, height: 50)
+                .background(darkBackground2)
+                .clipShape(RoundedRectangle(cornerRadius: 15))
+            TextView(text: name, font: .body, fontWeight: .semibold)
         }
     }
 }
