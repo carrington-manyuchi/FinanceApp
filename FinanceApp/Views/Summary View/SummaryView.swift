@@ -75,37 +75,7 @@ struct SummaryView: View {
                     }
                     .padding(.horizontal)
                     
-                    HStack {
-                        VStack(alignment: .leading) {
-                            HStack(alignment: .center) {
-                                Image(systemName: "person.circle.fill")
-                                    .foregroundStyle(.white)
-                                    .font(.largeTitle)
-                                
-                                VStack(alignment: .leading) {
-                                    TextView(text: "Core Training", font: .headline, fontWeight: .semibold)
-                                    Text("78 CAL")
-                                        .foregroundStyle(fontColor)
-                                }
-                            }
-                        }
-                        
-                        Spacer()
-                        VStack {
-                            HStack {
-                                TextView(text: "6/12/29", font: .caption2, fontWeight: .semibold)
-                                Image(systemName: "chevron.right")
-                                    .foregroundStyle(fontColor)
-                                    .font(.caption2)
-                                    .fontWeight(.semibold)
-                            }
-                        }
-                    }
-                    .padding()
-                    .background(
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(darkBackground2)
-                    )
+                    PersonView()
                     
                     HStack {
                         VStack(alignment: .leading) {
@@ -213,4 +183,40 @@ struct SummaryView: View {
 
 #Preview {
     SummaryView()
+}
+
+struct PersonView: View {
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                HStack(alignment: .center) {
+                    Image(systemName: "person.circle.fill")
+                        .foregroundStyle(.white)
+                        .font(.largeTitle)
+                    
+                    VStack(alignment: .leading) {
+                        TextView(text: "Core Training", font: .headline, fontWeight: .semibold)
+                        Text("78 CAL")
+                            .foregroundStyle(fontColor)
+                    }
+                }
+            }
+            
+            Spacer()
+            VStack {
+                HStack {
+                    TextView(text: "6/12/29", font: .caption2, fontWeight: .semibold)
+                    Image(systemName: "chevron.right")
+                        .foregroundStyle(fontColor)
+                        .font(.caption2)
+                        .fontWeight(.semibold)
+                }
+            }
+        }
+        .padding()
+        .background(
+            RoundedRectangle(cornerRadius: 10)
+                .fill(darkBackground2)
+        )
+    }
 }
