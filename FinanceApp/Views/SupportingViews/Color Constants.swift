@@ -10,10 +10,13 @@ import SwiftUI
 
 let darkBackground = Color("DarkBackground")
 let darkBackground2 = Color("BackgroundX")
+let darkBackground3 = Color("Background3")
 let fontColor = Color("FontColor")
 let gold = Color("gold")
 let gold2 = Color("gold2")
 let white = Color("white")
+
+let purple2 = Color("purple2")
 
 
 

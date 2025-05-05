@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct YourBalanceView: View {
+
     var body: some View {
         ZStack {
             darkBackground
@@ -27,7 +28,9 @@ struct YourBalanceView: View {
                 YourBalanceActionsView()
                     .padding(.vertical)
                 
-                Spacer()
+                ActivitiesOfTheWeekHeader()
+                
+                MonthlyExpensesView()
             }
         }
     }
@@ -98,7 +101,7 @@ struct YourBalanceAmountView: View {
                 }
                 HStack {
                     Text("$\(amount, specifier: "%.2f")")
-                        .foregroundStyle(fontColor)
+                        .foregroundStyle(.white)
                         .font(.title)
                         .fontWeight(.bold)
                     Spacer()
@@ -157,5 +160,47 @@ struct ActionView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 15))
             TextView(text: name, font: .body, fontWeight: .semibold)
         }
+    }
+}
+
+struct ActivitiesOfTheWeekHeader: View {
+    var body: some View {
+        HStack {
+            TextView(text: "Activities", font: .headline, fontWeight: .semibold)
+            Spacer()
+            TextView(text: "This Week", font: .caption, fontWeight: .bold)
+                .padding(.horizontal)
+                .padding(7)
+                .background(
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(darkBackground2)
+                )
+        }
+        .padding()
+        .padding(.horizontal, 30)
+    }
+}
+
+struct MonthlyExpensesView: View {
+    
+    let barData: [(String, CGFloat)] = [
+        (month: "Jan", percentage: 0.67),
+        (month: "Feb", percentage: 0.37),
+        (month: "Mar", percentage: 0.57),
+        (month: "Apr", percentage: 0.64),
+        (month: "May", percentage: 0.67),
+        (month: "Jun", percentage: 0.22),
+        (month: "Jul", percentage: 0.50),
+        (month: "Aug", percentage: 0.71),
+    ]
+    var body: some View {
+        HStack {
+            ForEach(barData.indices, id: \.self) { index in
+                let entry = barData[index]
+                
+                FillBarView(percentage: entry.1, month: entry.0)
+            }
+        }
+        .padding()
     }
 }
